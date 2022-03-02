@@ -8,20 +8,31 @@ export default class Conta {
     #saldo;
 
     constructor(pAgencia, pCliente, pSaldo) {
+        
+        if (this.constructor == Conta) {
+            throw new Error("Não deve ser instanciado uma classe Conta!");
+        }
 
         this.agencia = pAgencia;
         this.#cliente = pCliente;
         this.#saldo = pSaldo;
     }
 
+    //método abstrato, ou seja, tem que ser sempre reescrito
+    sacar(pValor) {
+        throw new Error("O método sacar deve ser reescrito!");
+    }
+
     sacar(pValor, pTaixa) {
 
-        if (this.#saldo < pValor)
-            return;
+        const valorSacado = pTaixa * pValor;
 
-        this.#saldo -= pValor;
+        if (this.#saldo < valorSacado)
+            return 0;
 
-        return pValor;
+        this.#saldo -= valorSacado;
+
+        return valorSacado;
     }
 
     depositar(pValor) {

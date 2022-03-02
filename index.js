@@ -11,3 +11,4 @@ console.log(`Cliente ${cliente1.nome} com o CPF ${cliente1.cpf}`);
 contaCorrente1.depositar(150);
 contaCorrente1.sacar(50);
 console.log(`Conta Corrente - agência: ${contaCorrente1.agencia}, saldo: ${contaCorrente1.saldo} - do cliente ${contaCorrente1.cliente.nome}`)
+console.log(contaCorrente1)
